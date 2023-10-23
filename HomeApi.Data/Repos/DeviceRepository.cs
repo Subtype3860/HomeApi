@@ -44,9 +44,11 @@ namespace HomeApi.Data.Repos
         /// </summary>
         public async Task<Device> GetDeviceById(Guid id)
         {
-            return await _context.Devices
+            var model = await _context.Devices
                 .Include( d => d.Room)
                 .Where(d => d.Id == id).FirstOrDefaultAsync();
+
+            return model;
         }
         
         /// <summary>
