@@ -55,13 +55,17 @@ namespace HomeApi.Data.Repos
         {
             if (!string.IsNullOrEmpty(query.NewName))
                 room.Name = query.NewName;
+
             if (query.NewArea != default)
                 room.Area = query.NewArea;
+
             if (query.NewVoltage != default)
                 room.Voltage = query.NewVoltage;
+
             var entry = _context.Entry(room);
             if (entry.State == EntityState.Detached)
                 _context.Rooms.Update(room);
+
             await _context.SaveChangesAsync();
         }
     }

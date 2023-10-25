@@ -2,15 +2,16 @@
 
 public class UpdateRoomQuery
 {
-    public UpdateRoomQuery(int newVoltage, int newArea, string newName)
+    public UpdateRoomQuery(string newName, int newVoltage, int newArea)
     {
+        NewName = newName;
         NewVoltage = newVoltage;
         NewArea = newArea;
-        NewName = newName;
+        
     }
-
-    public int NewArea { get; }
-    public int NewVoltage { get; }
     public string NewName { get; }
+    public int NewVoltage { get; }
+    public int NewArea { get; }
+    
     
 }

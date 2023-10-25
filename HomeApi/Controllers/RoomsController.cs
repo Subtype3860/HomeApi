@@ -55,7 +55,7 @@ namespace HomeApi.Controllers
             var withSameName = _rooms.GetRoomByName(request.NewName);
             if(withSameName.Result != null)
                 return StatusCode(400, $"Ошибка: Помещение с наименованием {request.NewName} уже подключено. Выберите другой вариант!");
-            await _rooms.UpdateRoom(room, new UpdateRoomQuery(request.NewArea, request.NewVoltage, request.NewName));
+            await _rooms.UpdateRoom(room, new UpdateRoomQuery(request.NewName, request.NewVoltage, request.NewArea));
             return StatusCode(200, $"Помещение обновлено! Наименование - {room.Name}, площадь - {room.Area}, напряжение - {room.Voltage}В");
         }
     }
